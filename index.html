@@ -4,182 +4,973 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Affordable, mobile-friendly websites for local businesses.">
-  <title>Local Website Studio | Websites for Small Businesses</title>
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Premium, mobile-friendly websites for restaurants, hotels, gyms, cafes and growing businesses.">
+  <title>Local Website Studio | Websites for Businesses</title>
+
   <style>
-    * { box-sizing: border-box; }
-    body {
+    :root {
+      --bg: #0b0b0b;
+      --panel: #151515;
+      --text: #ffffff;
+      --muted: #b8b8b8;
+      --orange: #ff612e;
+      --border: rgba(255,255,255,0.12);
+    }
+
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #20231f;
-      background: #f7f7f2;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
-    header {
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff;
-      border-bottom: 1px solid #e5e5df;
-    }
-    .brand { font-weight: 800; letter-spacing: -0.5px; }
-    header a { color: #20231f; text-decoration: none; }
-    .hero {
-      padding: 70px 7% 55px;
-      background: #183b2b;
-      color: white;
-    }
-    .tag {
-      color: #d6e8b9;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    h1 { font-size: clamp(36px, 8vw, 60px); line-height: 1.1; margin: 15px 0; }
-    .hero p { max-width: 520px; color: #e1e9e2; }
-    .btn {
-      display: inline-block;
-      background: #d6e8b9;
-      color: #183b2b;
-      padding: 12px 18px;
-      border-radius: 6px;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      font-weight: bold;
-      margin-top: 12px;
     }
-    section { padding: 45px 7%; }
-    h2 { font-size: 29px; margin-top: 0; }
-    .muted { color: #62665f; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
     }
-    .card {
-      background: white;
-      padding: 23px;
-      border: 1px solid #e5e5df;
-      border-radius: 12px;
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
     }
-    .card h3 { margin-top: 0; }
-    .price { font-size: 23px; font-weight: bold; }
-    .small { font-size: 13px; color: #62665f; }
-    footer {
-      padding: 25px 7%;
-      background: #183b2b;
+
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 20px;
+      border-radius: 50px;
+      background: var(--orange);
+      color: #111;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #ff865e;
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
       color: white;
+      border-color: rgba(255,255,255,0.4);
     }
-    footer p { margin: 5px 0; }
+
+    .button-outline:hover {
+      background: white;
+      color: #111;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      padding: 65px 45px 35px;
+      border-radius: 28px;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(116,0,30,0.7), transparent 42%),
+        radial-gradient(ellipse at 15% 15%, #ff8a2d, transparent 50%),
+        linear-gradient(125deg, #f04423, #9d211d 65%, #321015);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      right: 12%;
+      top: 50px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255,180,95,0.35), rgba(25,8,15,0.9));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: #ffd1a6;
+    }
+
+    .hero p {
+      max-width: 460px;
+      font-size: 16px;
+      color: #fff0e9;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 58px;
+    }
+
+    .hero-stat {
+      font-size: 12px;
+      color: #ffe3d6;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    /* TRUST STRIP */
+
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px;
+      margin-top: 10px;
+      border-radius: 24px;
+      background: #151515;
+    }
+
+    .trust-title {
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 140px;
+    }
+
+    .trust-item {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .trust-item span {
+      color: var(--orange);
+      margin-right: 7px;
+    }
+
+    /* SECTIONS */
+
+    section.content-section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      align-items: end;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    .section-label {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 5vw, 53px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      transition: 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+    }
+
+    .service-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin: 18px 0 9px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PRICING */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .price-card {
+      padding: 34px;
+      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+    }
+
+    .price-card.featured {
+      background:
+        radial-gradient(ellipse at top right, rgba(255,97,46,0.18), transparent 50%),
+        #171311;
+      border-color: rgba(255,97,46,0.6);
+    }
+
+    .price-label {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .price {
+      font-size: clamp(38px, 6vw, 54px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 15px 0 5px;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .price-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .price-card > p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 22px 0 28px;
+    }
+
+    .feature-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: #e9e9e9;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--orange);
+      font-weight: 900;
+      margin-right: 10px;
+    }
+
+    .price-card .button {
+      width: 100%;
+    }
+
+    .pricing-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      overflow: hidden;
+    }
+
+    .project-art {
+      min-height: 205px;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(135deg, #9d2a1c, #ed6a32 55%, #361315);
+    }
+
+    .project-art.level-up {
+      background:
+        radial-gradient(ellipse at 75% 15%, #e5d7bd, transparent 35%),
+        linear-gradient(135deg, #252522, #777164, #191919);
+    }
+
+    .project-art span {
+      font-size: 29px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .project-body {
+      padding: 25px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 9px;
+    }
+
+    .project-body h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .process-card {
+      padding: 23px;
+      border-top: 2px solid var(--orange);
+      background: #141414;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .process-card .number {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .process-card h3 {
+      font-size: 17px;
+      margin: 12px 0 8px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+
+    .contact-panel {
+      padding: 55px 35px;
+      border-radius: 26px;
+      background:
+        radial-gradient(ellipse at top right, rgba(255,97,46,0.35), transparent 50%),
+        linear-gradient(120deg, #311713, #151515 75%);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 0 auto 25px;
+      font-size: 14px;
+    }
+
+    .contact-small {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    footer {
+      padding: 28px 0;
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    /* MOBILE RESPONSIVENESS */
+
+    @media (max-width: 760px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+      }
+
+      .navbar > .button {
+        padding: 10px 14px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 48px 24px 27px;
+        border-radius: 22px;
+      }
+
+      .hero::before {
+        width: 220px;
+        height: 220px;
+        right: -50px;
+        top: 100px;
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 12vw, 68px);
+        letter-spacing: -2.5px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 40px;
+      }
+
+      .trust-strip {
+        justify-content: flex-start;
+        padding: 23px;
+        gap: 17px;
+      }
+
+      .trust-title {
+        width: 100%;
+        max-width: none;
+      }
+
+      section.content-section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card {
+        padding: 19px;
+      }
+
+      .service-card h3 {
+        font-size: 18px;
+      }
+
+      .pricing-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card {
+        padding: 25px;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-panel {
+        padding: 40px 22px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        width: 92%;
+      }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <a class="brand" href="#">LOCAL WEBSITE STUDIO</a>
-    <a href="#contact">Contact</a>
+  <header class="container">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="logo" href="#home">LOCAL<span>.</span>STUDIO</a>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#projects">Projects</a>
+      </div>
+
+      <a class="button" href="#contact">Let's Talk ↗</a>
+    </nav>
   </header>
 
   <main>
-    <div class="hero">
-      <div class="tag">Websites for local businesses</div>
-      <h1>Your business.<br>Your website.</h1>
-      <p>
-        I build clean, mobile-friendly websites for restaurants,
-        cafes, gyms, clothing shops and other small businesses.
-      </p>
-      <a class="btn" href="#work">View my work</a>
-    </div>
+    <section class="container" id="home">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">Web Design for Growing Businesses</span>
 
-    <section id="work">
-      <h2>My Sample Projects</h2>
-      <p class="muted">Explore my website designs for different businesses.</p>
-      <div class="grid">
-        <div class="card">
-          <h3>Vikram's Restaurant</h3>
-          <p class="muted">
-            A restaurant website featuring a menu, food items
-            and prices.
+          <h1>
+            Your Business.<br>
+            <span>Your Website.</span>
+          </h1>
+
+          <p>
+            I create modern, mobile-friendly websites for restaurants,
+            hotels, gyms, cafes and local businesses to help them
+            build a stronger online presence.
           </p>
-          <a class="btn"
-             href="https://nambiraja6853.github.io/my-restaurant-website/?v=3"
-             target="_blank" rel="noopener">View Website</a>
+
+          <div class="hero-actions">
+            <a class="button" href="#projects">Explore My Work ↗</a>
+            <a class="button button-outline" href="#pricing">View Packages</a>
+          </div>
         </div>
-<div class="card">
-  <h3>The Level Up</h3>
-  <p class="muted">
-    A clothing-store website concept with a modern,
-    minimal style.
-  </p>
-  <a class="btn"
-     href="https://nambiraja6853.github.io/The-Level-Up-/"
-     target="_blank"
-     rel="noopener">
-    View Website
-  </a>
-</div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>#01</strong>
+            Restaurant Websites
+          </div>
+          <div class="hero-stat">
+            <strong>#02</strong>
+            Hotels & Cafes
+          </div>
+          <div class="hero-stat">
+            <strong>#03</strong>
+            Gym Websites
+          </div>
+          <div class="hero-stat">
+            <strong>#04</strong>
+            Business Websites
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-strip">
+        <div class="trust-title">Website solutions for local businesses</div>
+        <div class="trust-item"><span>✦</span> Modern Design</div>
+        <div class="trust-item"><span>✦</span> Mobile Friendly</div>
+        <div class="trust-item"><span>✦</span> Clear Pricing</div>
+        <div class="trust-item"><span>✦</span> Online Presence</div>
       </div>
     </section>
 
-    <section id="services">
-      <h2>My Services</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Restaurants & Cafes</h3>
-          <p>Menus, photos, location and contact details.</p>
+    <section class="container content-section" id="services">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">01 — What I Do</div>
+          <h2>Designs that make<br>businesses stand out.</h2>
         </div>
-        <div class="card">
-          <h3>Gyms & Fitness</h3>
-          <p>Services, membership plans and enquiry links.</p>
-        </div>
-        <div class="card">
-          <h3>Clothing Shops</h3>
-          <p>Product galleries, categories and shop details.</p>
-        </div>
-        <div class="card">
-          <h3>Other Small Businesses</h3>
-          <p>Simple websites tailored to your business needs.</p>
-        </div>
+
+        <p class="section-description">
+          Your website is often the first impression people have of
+          your business. I focus on clean design, useful information
+          and an easy mobile experience.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <span class="service-number">01 / FOOD</span>
+          <h3>Restaurants</h3>
+          <p>Menus, dish photos, opening hours, location and contact links.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">02 / STAY</span>
+          <h3>Hotels</h3>
+          <p>Room information, photos, facilities and enquiry links.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">03 / FITNESS</span>
+          <h3>Gyms</h3>
+          <p>Membership information, training services and enquiry buttons.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">04 / CAFE</span>
+          <h3>Cafes</h3>
+          <p>Menu highlights, atmosphere, timings and location details.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">05 / RETAIL</span>
+          <h3>Clothing Stores</h3>
+          <p>Product showcases, brand identity and collection displays.</p>
+        </article>
+
+        <article class="service-card">
+          <span class="service-number">06 / GROWTH</span>
+          <h3>Other Businesses</h3>
+          <p>Custom website layouts based on each business's needs.</p>
+        </article>
       </div>
     </section>
 
-    <section id="pricing">
-      <h2>Starting Prices</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Starter</h3>
-          <div class="price">₹2,999+</div>
-          <p>For a simple business website.</p>
+    <section class="container content-section" id="pricing">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">02 — Simple Packages</div>
+          <h2>Good design.<br>Clear pricing.</h2>
         </div>
-        <div class="card">
-          <h3>Business</h3>
-          <div class="price">₹4,999+</div>
-          <p>For a website with more sections and features.</p>
-        </div>
-        <div class="card">
-          <h3>Custom</h3>
-          <div class="price">Let's discuss</div>
-          <p>For additional pages or special features.</p>
-        </div>
+
+        <p class="section-description">
+          Choose a starting package. Final features, page count,
+          delivery time and extra charges will be agreed before work begins.
+        </p>
       </div>
-      <p class="small">
-        Final prices depend on the agreed features.
-        Domain, hosting and paid services may cost extra.
+
+      <div class="pricing-grid">
+        <article class="price-card">
+          <div class="price-label">Starter Package</div>
+          <div class="price">₹3,999+</div>
+          <div class="price-note">Starting price · One-time design/build fee</div>
+
+          <h3>For Local Businesses</h3>
+          <p>
+            Suitable for restaurants, hotels, gyms and cafes that need
+            a clear, professional online presence.
+          </p>
+
+          <ul class="feature-list">
+            <li>Mobile-friendly layout</li>
+            <li>Business information and services</li>
+            <li>Photos and key details</li>
+            <li>Location and contact links</li>
+            <li>Basic search-friendly structure</li>
+          </ul>
+
+          <a class="button"
+             href="https://wa.me/918369815079?text=Hello%20Local%20Website%20Studio%2C%20I%20am%20interested%20in%20the%20Starter%20Package%20starting%20at%20Rs%203999.">
+            Discuss Starter Package ↗
+          </a>
+        </article>
+
+        <article class="price-card featured">
+          <div class="price-label">Business Package</div>
+          <div class="price">₹9,999+</div>
+          <div class="price-note">Starting price · One-time design/build fee</div>
+
+          <h3>For Growing Businesses</h3>
+          <p>
+            For businesses that need a more detailed website and
+            additional sections based on their requirements.
+          </p>
+
+          <ul class="feature-list">
+            <li>Custom visual design</li>
+            <li>Multiple pages or sections</li>
+            <li>Services or product showcases</li>
+            <li>Contact and enquiry links</li>
+            <li>Responsive design and testing</li>
+          </ul>
+
+          <a class="button"
+             href="https://wa.me/918369815079?text=Hello%20Local%20Website%20Studio%2C%20I%20am%20interested%20in%20the%20Business%20Package%20starting%20at%20Rs%209999.">
+            Discuss Business Package ↗
+          </a>
+        </article>
+      </div>
+
+      <p class="pricing-note">
+        Prices are starting estimates. Domain registration, paid hosting,
+        premium assets, online payments, booking systems, updates and
+        maintenance are not included unless agreed in writing.
       </p>
     </section>
 
-    <section id="contact">
-      <h2>Let's Build Your Website</h2>
-      <p class="muted">
-        Have a restaurant, cafe, gym or shop?
-        Tell me about your business and the website you need.
-      </p>
-      <p>Contact: Add your business email or WhatsApp details here.</p>
+    <section class="container content-section" id="projects">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">03 — Selected Work</div>
+          <h2>A few projects.<br>More to come.</h2>
+        </div>
+
+        <p class="section-description">
+          Explore my website concepts for hospitality and fashion.
+          These are sample projects demonstrating design ideas.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-art">
+            <span>LAKSHMI<br>HOTEL</span>
+          </div>
+
+          <div class="project-body">
+            <span class="project-tag">Hospitality · Sample Project</span>
+            <h3>Lakshmi Hotel</h3>
+            <p>
+              A hotel website sample designed to present the business
+              and its information online.
+            </p>
+
+            <a class="button"
+               href="https://nambiraja6853.github.io/Lakshmi-hotel/"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Website ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art level-up">
+            <span>THE<br>LEVEL UP</span>
+          </div>
+
+          <div class="project-body">
+            <span class="project-tag">Fashion · Sample Project</span>
+            <h3>The Level Up</h3>
+            <p>
+              A clothing-store website concept with a modern,
+              minimal visual style.
+            </p>
+
+            <a class="button"
+               href="https://nambiraja6853.github.io/The-Level-Up-/"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Website ↗
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container content-section" id="process">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">04 — The Process</div>
+          <h2>From idea<br>to website.</h2>
+        </div>
+
+        <p class="section-description">
+          A clear process helps both sides understand the project,
+          costs and delivery expectations before the website goes live.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <div class="number">STEP 01</div>
+          <h3>Discuss</h3>
+          <p>Understand the business, goals, pages and required features.</p>
+        </article>
+
+        <article class="process-card">
+          <div class="number">STEP 02</div>
+          <h3>Plan & Design</h3>
+          <p>Agree on layout, content, price and delivery schedule.</p>
+        </article>
+
+        <article class="process-card">
+          <div class="number">STEP 03</div>
+          <h3>Build & Test</h3>
+          <p>Create the website and check links and mobile layout.</p>
+        </article>
+
+        <article class="process-card">
+          <div class="number">STEP 04</div>
+          <h3>Handover</h3>
+          <p>Explain hosting, domain renewal, backups and maintenance.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container content-section" id="contact">
+      <div class="contact-panel">
+        <div class="section-label">05 — Start a Project</div>
+
+        <h2>Let's build something<br>great for your business.</h2>
+
+        <p>
+          Have a restaurant, hotel, gym, cafe or another business?
+          Contact me to discuss your idea, required features and budget.
+        </p>
+
+        <a class="button"
+           href="https://wa.me/918369815079?text=Hello%20Local%20Website%20Studio%2C%20I%20am%20interested%20in%20building%20a%20website%20for%20my%20business."
+           target="_blank"
+           rel="noopener noreferrer">
+          Contact on WhatsApp ↗
+        </a>
+
+        <div class="contact-small">
+          WhatsApp enquiries: +91 83698 15079
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p><strong>Local Website Studio</strong></p>
-    <p>Simple websites for growing businesses.</p>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">LOCAL<span>.</span>STUDIO</a>
+      <p>Web design for businesses. Built with care.</p>
+      <p>© <span id="year"></span> Local Website Studio</p>
+    </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
